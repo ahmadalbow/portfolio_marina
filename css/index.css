@@ -1,0 +1,295 @@
+:root {
+    --main-color: #101096;
+    --main-color-light: rgba(31, 31, 194, 0.822);
+    --dark-gray : #242424;
+    --light-gray : #5A5A5A;
+} 
+
+body{
+    font-family:  'Circular Std', sans-serif;
+    position: relative;
+    height: 100vh;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: var(--main-color) !important;
+}
+.main-btn {
+    background: var(--main-color);
+    padding: 0.7rem 2rem 0.7rem 2rem;   
+    
+    color: white;
+    width: fit-content;
+}
+.main-btn:hover {
+    background: var(--main-color-light);
+    color: white;
+}
+
+/* Intro Start */
+.intro{
+background-color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+width: 100vw;
+position: absolute;
+top : 0;
+z-index: 100;
+}
+.intro .cir{
+    width: 100px;
+    height: 100px;
+    transition: all 0.3s ease-in;
+    border: solid 2px #101096;
+    border-radius: 50%;
+    animation: lighting linear infinite 1s;
+}
+.go-up{
+    transition: transform 0.4s ease-out;
+    transform: translateY(-100%);
+}
+@keyframes lighting {
+    0%{
+        box-shadow: 0 0 0rem #101096; 
+    }
+    50%{
+        box-shadow: 0 0 5rem #101096; 
+
+    }
+    100%{
+        box-shadow: 0 0 0rem #101096; 
+
+    }
+}
+
+
+/* Intro End */
+
+
+
+/* NAV Start */
+
+
+.navbar {
+    height: 76px;
+
+
+} 
+
+.navbar {
+    height: 72px;
+    font-weight:500;
+    padding: 2rem;
+}
+
+.navbar .logo { 
+    height: 38px; 
+    width: 38px; 
+}
+
+.navbar .nav-link {
+    margin-right: 1rem;
+    margin-left:1rem;
+    font-weight: 700;
+
+}
+
+.logo{
+    font-size: 24px;
+    font-weight: 900;
+    margin-left: 1rem;
+}
+
+
+/* NAV End */ 
+
+
+/* Landing Start */
+
+.gray-background{
+    height: calc(100vh - 76px);
+    width: 100%;
+}
+.right {
+    overflow: hidden;
+}
+.landing {
+    height: calc(100vh - 76px);
+    --background-opacity: calc(100% - 1% * ((max(var(--scroll), 70) - 70) * 100 / 20)  );
+    opacity: var(--background-opacity) !important;
+}
+ h1{
+    font-size: 5rem;
+    font-weight: 800;
+}
+
+@media(max-width : 992px) {
+    h1 {
+        font-size: 4rem;
+    }
+}
+h2{
+    font-weight: 800;
+}
+h3{
+    font-weight: 700;
+}
+ p {
+    margin-bottom : 0.5rem;
+}
+ .text {
+    line-height: 1.6;
+    width:100%
+}
+
+
+/* Landing End */
+
+
+
+/* About-me Start */
+
+.about-me{
+    background-color: var(--dark-gray);
+    height: 4000px;
+    color: white;
+    position: relative;
+ 
+}
+
+.about-me .container{
+    padding-top: 8rem;
+}
+
+@media (max-width: 768px) {
+    .about-me .container{
+        padding-top: 3rem;
+    }
+}
+
+.about-me h2{
+    font-size:3rem ;
+}
+.japanese-container{
+    position: absolute;
+    top:0;
+    width: 100%;
+}
+
+
+.japanese{
+    font-weight: 800;
+    font-size: 3rem;
+    color: var(--light-gray);
+}
+
+.japanese:nth-child(1){
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    top : 0rem;
+    left: 15rem;
+    --rotate1: calc( 1deg * ((max(var(--scroll), 50) - 50) * 50 / 30)  );
+    
+    transform: rotate(var( --rotate1));
+}
+
+.japanese:nth-child(2){
+    position: absolute;
+    width: 50px;
+    height: 300px;
+    top : -10rem;
+    left: 15rem;
+    --rotate1: calc( 1deg * ((max(var(--scroll), 50) - 50) * 30 / 30)  );
+    
+    transform: rotate(var( --rotate1));
+}
+.japanese:nth-child(3){
+    position: absolute;
+    width: 50px;
+    height: 300px;
+    top : -5rem;
+    left: 10rem;
+    --rotate1: calc( 1deg * ((max(var(--scroll), 50) - 50) * 30 / 30)  );
+    
+    transform: rotate(var( --rotate1));
+}
+.japanese:nth-child(4){
+    position: absolute;
+    width: 50px;
+    height: 300px;
+    top : 2rem;
+    left: 10rem;
+    --rotate1: calc( 1deg * ((max(var(--scroll), 50) - 50) * 30 / 30)  );
+    
+    transform: rotate(var( --rotate1));
+}
+
+.japanese:nth-child(5){
+    position: absolute;
+    width: 40px;
+    height: 400px;
+    top : 0rem;
+    right: 15rem;
+    --rotate1: calc( -1deg * ((max(var(--scroll), 50) - 50) * 50 / 30)  );
+    transform: rotate(var( --rotate1));
+}  
+.japanese:nth-child(6){
+    position: absolute;
+    width: 50px;
+    height: 300px;
+    top : -10rem;
+    right: 15rem;
+    --rotate1: calc( -1deg * ((max(var(--scroll), 50) - 50) * 30 / 30)  );
+    
+    transform: rotate(var( --rotate1));
+}
+.japanese:nth-child(7){
+    position: absolute;
+    width: 50px;
+    height: 300px;
+    top : -5rem;
+    right: 10rem;
+    --rotate1: calc( -1deg * ((max(var(--scroll), 50) - 50) * 30 / 30)  );
+    
+    transform: rotate(var( --rotate1));
+}
+.japanese:nth-child(8){
+    position: absolute;
+    width: 50px;
+    height: 300px;
+    top : 2rem;
+    right: 10rem;
+    --rotate1: calc( -1deg * ((max(var(--scroll), 50) - 50) * 30 / 30)  );
+    
+    transform: rotate(var( --rotate1));
+}
+.japanese div{
+    position: absolute;
+    bottom: 0;
+}
+
+
+.about-me .text{
+
+    margin-top: 2rem;
+    width: 65%;
+
+}
+@media (max-width: 768px) {
+    /* Your styles for medium screens go here */
+    .about-me .text{
+
+        margin-top: 2rem;
+        width: 90%;
+    
+    }
+}
+
+/* About-me End */
