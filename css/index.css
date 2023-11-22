@@ -3,6 +3,7 @@
     --main-color-light: rgba(31, 31, 194, 0.822);
     --dark-gray : #242424;
     --light-gray : #5A5A5A;
+    --blau : #1165E3;
 } 
 
 body{
@@ -157,10 +158,9 @@ h3{
 
 .about-me{
     background-color: var(--dark-gray);
-    height: 4000px;
     color: white;
     position: relative;
- 
+    padding-bottom: 10rem;
 }
 
 .about-me .container{
@@ -187,14 +187,15 @@ h3{
     font-weight: 800;
     font-size: 3rem;
     color: var(--light-gray);
+    pointer-events: none;
 }
 
 .japanese:nth-child(1){
     position: absolute;
-    width: 40px;
-    height: 400px;
+    width: 20px;
+    height: 450px;
     top : 0rem;
-    left: 15rem;
+    left: 12rem;
     --rotate1: calc( 1deg * ((max(var(--scroll), 50) - 50) * 50 / 30)  );
     
     transform: rotate(var( --rotate1));
@@ -233,10 +234,10 @@ h3{
 
 .japanese:nth-child(5){
     position: absolute;
-    width: 40px;
-    height: 400px;
+    width: 20px;
+    height: 450px;
     top : 0rem;
-    right: 15rem;
+    right: 12rem;
     --rotate1: calc( -1deg * ((max(var(--scroll), 50) - 50) * 50 / 30)  );
     transform: rotate(var( --rotate1));
 }  
@@ -272,9 +273,20 @@ h3{
 }
 .japanese div{
     position: absolute;
+    height: 100px;
+    width: 100px;
     bottom: 0;
+    cursor:default;
+    pointer-events: all;
+    transition: all 0.5s;
+
 }
 
+.text-blur{
+    color: transparent;
+    text-shadow: 0 0 15px var(--light-gray);
+
+}
 
 .about-me .text{
 
@@ -290,6 +302,57 @@ h3{
         width: 90%;
     
     }
+}
+.experiences{
+    margin-top: 8rem;
+}
+.experiences-container{
+    margin-left: 10rem;
+}
+.experiences .line{
+    height: 4px;
+    width: 55px;
+    border-radius: 5px;
+    background-color: var(--blau);
+}
+
+.experience.active {
+    background-color: white;
+    color: black;
+    padding: 20px 0px 20px 30px; 
+    border-radius: 10px;
+}
+.experience {
+    padding: 20px 30px 0;
+    border-radius: 10px;
+    transform: all 3s;
+    cursor: pointer;
+}
+.experiences .date{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.experiences .company{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.experiences .job{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(201, 201, 201);
+}
+.experience.active .job{
+    display: none;
+}
+.experiences .details{
+    display: none;
+    
+}
+.experience.active .details {
+    display: block;
+    color: rgb(201, 201, 201);
 }
 
 /* About-me End */

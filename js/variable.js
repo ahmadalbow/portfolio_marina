@@ -567,3 +567,25 @@ const sentences =  [
           "come": "doći",
           "true": "istinit"
           }
+
+const japaneseWord = {
+  "す": "Su",
+  "い": "I",
+  "美": "Beauty",
+  "月": "Moon",
+  "ね": "Ne",
+  "で": "De",
+  "が": "Ga",
+  "し": "Shi"
+  }
+
+  const engToJap = {
+    "Su": "す",
+    "I": "い",
+    "Beauty": "美",
+    "Moon": "月",
+    "Ne": "ね",
+    "De": "で",
+    "Ga": "が",
+    "Shi": "し"
+    }

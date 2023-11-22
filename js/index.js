@@ -28,7 +28,7 @@ setTimeout(function() {
         y: 100,
         ease: Expo.easeOut
     })
-}, 2000);
+}, 1500);
 
 window.addEventListener("scroll", setScrollVar)
 window.addEventListener("resize", setScrollVar)
@@ -45,3 +45,44 @@ function setScrollVar() {
 }
 
 setScrollVar()
+
+const expreiences = document.querySelectorAll(".experience")
+
+expreiences.forEach(element => {
+    element.addEventListener("click", function() {
+      expreiences.forEach(element => {element.classList.remove("active")})
+      element.classList.add("active")
+      TweenMax.from(element, 1, {
+        opacity: 0,
+        y: 50,
+        ease: Expo.easeOut,
+    })
+    });
+});
+
+const japanese = document.querySelectorAll(".japanese div")
+
+japanese.forEach(element => {
+    element.addEventListener("mouseover", function() {
+      element.classList.add("text-blur")
+      setTimeout(() => {
+        console.log(element.textContent)
+        element.textContent = japaneseWord[element.textContent]
+        
+        element.classList.remove("text-blur")
+      } ,500)
+
+    });
+});
+
+japanese.forEach(element => {
+  element.addEventListener("mouseout", function() {
+    element.classList.add("text-blur")
+    setTimeout(() => {
+
+      element.textContent = engToJap[element.textContent] ;
+      element.classList.remove("text-blur")
+    } ,500)
+
+  });
+});
