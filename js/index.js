@@ -28,7 +28,7 @@ setTimeout(function() {
         y: 100,
         ease: Expo.easeOut
     })
-}, 1500);
+}, 0);
 
 window.addEventListener("scroll", setScrollVar)
 window.addEventListener("resize", setScrollVar)
@@ -37,7 +37,6 @@ function setScrollVar() {
   const htmlElement = document.documentElement
   const percentOfScreenHeightScrolled =
     htmlElement.scrollTop / htmlElement.clientHeight
-  console.log(percentOfScreenHeightScrolled * 100)
   htmlElement.style.setProperty(
     "--scroll",
     percentOfScreenHeightScrolled * 100
@@ -55,7 +54,7 @@ expreiences.forEach(element => {
       TweenMax.from(element, 1, {
         opacity: 0,
         y: 50,
-        ease: Expo.easeOut,
+        
     })
     });
 });
@@ -86,3 +85,70 @@ japanese.forEach(element => {
 
   });
 });
+
+
+const observer = new IntersectionObserver(entries => {
+  for (let i = entries.length - 1; i >= 0; i--) {
+    const entry = entries[i]
+    if (entry.isIntersecting) {
+      if (entry.target.dataset.imgToShow === "#img-8"){
+        
+        document.querySelector(".languages").classList.add("go-up")
+        break
+      }
+      if (entry.target.dataset.imgToShow === "#img-7"){
+        
+        document.querySelector(".languages").classList.remove("go-up")
+        
+      }
+      document.querySelectorAll("[data-img]").forEach(img => {
+        img.classList.remove("lshow")
+      })
+      const img = document.querySelector(entry.target.dataset.imgToShow)
+      img?.classList.add("lshow")
+
+      break
+    }
+  }
+})
+
+document.querySelectorAll("[data-img-to-show]").forEach(section => {
+  observer.observe(section)
+})
+
+const ScrollAnimationObserver = new IntersectionObserver(entries => {
+  for (let i = entries.length - 1; i >= 0; i--) {
+    const entry = entries[i]
+    if (entry.isIntersecting) {
+        entry.target.classList.add("show")
+    observer.unobserve(entry.target);
+    }
+  }
+})
+
+
+
+document.querySelectorAll(".hidden").forEach(section => {
+  ScrollAnimationObserver.observe(section)
+})
+
+
+const textarea = document.getElementById("message");
+textarea.addEventListener("keyup", e =>{
+  textarea.style.height = "36px";
+  let scHeight = e.target.scrollHeight;
+  console.log(scHeight)
+  textarea.style.height = `${scHeight}px`;
+})
+
+
+const navbarToggler = document.querySelector(".navbar-toggler");
+const links = document.querySelector(".links");
+navbarToggler.addEventListener("click", () => {
+    links.classList.add('nav-full-screen')
+    document.querySelector("header").classList.add('sticky-top')
+})
+links.addEventListener("click", () => {
+    links.classList.remove('nav-full-screen')
+    document.querySelector("header").classList.remove('sticky-top')
+})
